@@ -58,6 +58,7 @@ HLS_IP_BUILD_TARGETS += build_$(1)
 build_$(1) : $$(HLS_IP_$(1)_OUTS)
 	$$(eval HLS_IP_OUTPUT_SRCS += $$(shell find $(5)/$(1)/solution/impl/verilog/ -maxdepth 1 -name '*.v' -o -name '*dat'))
 	$$(eval HLS_IP_OUTPUT_SRCS += $$(shell find $(5)/$(1)/solution/impl/verilog/project.srcs/sources_1/ip -name '*.xci' 2>/dev/null))
+	$$(eval HLS_IP_OUTPUT_INCS += $$(shell find $(5)/$(1)/solution/impl/verilog/ -name '*.dat'))
 
 # Build with HLS
 $$(HLS_IP_$(1)_OUTS) : $$(HLS_IP_$(1)_LIB_SRCS)
